@@ -279,21 +279,19 @@
                     return;
                 }
 
-                // Simulate POST request (replace URL with your backend endpoint)
-                fetch('https://example.com/api/claim-domain', {
+                // Connect to deployed Flask backend on Render
+                fetch('https://backoffice3-1.onrender.com/api/claim-domain', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ domain: domain, email: email })
                 })
                 .then(function (response) {
                     if (response.ok) {
-                        errorMsg.style.color = '#4caf50';
-                        errorMsg.textContent = 'Success! Your domain claim has been received. We’ll contact you soon.';
-                        errorMsg.style.display = 'block';
-                        form.reset();
+                        // Redirect to back office after success (replace URL as needed)
+                        window.location.href = '/backoffice';
                     } else {
-                        return response.text().then(function (text) {
-                            throw new Error(text || 'Submission failed. Please try again later.');
+                        return response.json().then(function (data) {
+                            throw new Error(data.error || 'Submission failed. Please try again later.');
                         });
                     }
                 })

@@ -8,7 +8,7 @@ def get_my_ip():
         return jsonify({'error': str(e)}), 500
 
 import os
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, redirect
 import requests
 from dotenv import load_dotenv
 from flask_cors import CORS
@@ -19,6 +19,10 @@ print("Render public IP:", requests.get('https://api.ipify.org').text)
 load_dotenv()
 
 app = Flask(__name__)
+# Redirect root URL to the main back office
+@app.route('/')
+def root():
+    return redirect('https://backoffice21.onrender.com/', code=302)
 CORS(app)  # Allow all origins by default; restrict in production if needed
 
 # Route to get the public IP address of the backend server

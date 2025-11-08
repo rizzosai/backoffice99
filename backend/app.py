@@ -1,3 +1,37 @@
+import os
+from flask import Flask, send_from_directory
+from flask_cors import CORS
+
+app = Flask(__name__)
+CORS(app)
+
+# Downloadable Cheap Traffic Guide
+@app.route('/guides/download/cheap-traffic')
+def download_cheap_traffic_guide():
+    return send_from_directory('static/guides', 'cheap_traffic_guide.html', as_attachment=True)
+
+# Downloadable Facebook Affiliate Guide
+@app.route('/guides/download/facebook')
+def download_facebook_affiliate_guide():
+    return send_from_directory('static/guides', 'facebook_affiliate_guide.html', as_attachment=True)
+
+# Downloadable Instagram Affiliate Guide
+@app.route('/guides/download/instagram')
+def download_instagram_affiliate_guide():
+    return send_from_directory('static/guides', 'instagram_affiliate_guide.html', as_attachment=True)
+
+# Downloadable Twitter Affiliate Guide
+@app.route('/guides/download/twitter')
+def download_twitter_affiliate_guide():
+    return send_from_directory('static/guides', 'twitter_affiliate_guide.html', as_attachment=True)
+
+# Downloadable TikTok Affiliate Guide
+@app.route('/guides/download/tiktok')
+def download_tiktok_affiliate_guide():
+    return send_from_directory('static/guides', 'tiktok_affiliate_guide.html', as_attachment=True)
+
+if __name__ == '__main__':
+    app.run(debug=True)
 
 import os
 from flask import Flask, request, jsonify, redirect, send_from_directory

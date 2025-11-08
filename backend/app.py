@@ -44,6 +44,26 @@ app = Flask(__name__)
 def download_cheap_traffic_guide():
     return send_from_directory('static/guides', 'cheap_traffic_guide.html', as_attachment=True)
 
+# Downloadable Facebook Affiliate Guide
+@app.route('/guides/download/facebook')
+def download_facebook_affiliate_guide():
+    return send_from_directory('static/guides', 'facebook_affiliate_guide.html', as_attachment=True)
+
+# Downloadable TikTok Affiliate Guide
+@app.route('/guides/download/tiktok')
+def download_tiktok_affiliate_guide():
+    return send_from_directory('static/guides', 'tiktok_affiliate_guide.html', as_attachment=True)
+
+# Downloadable Instagram Affiliate Guide
+@app.route('/guides/download/instagram')
+def download_instagram_affiliate_guide():
+    return send_from_directory('static/guides', 'instagram_affiliate_guide.html', as_attachment=True)
+
+# Downloadable Twitter Affiliate Guide
+@app.route('/guides/download/twitter')
+def download_twitter_affiliate_guide():
+    return send_from_directory('static/guides', 'twitter_affiliate_guide.html', as_attachment=True)
+
 # Route to get the public IP address of the backend server
 @app.route('/api/my-ip', methods=['GET'])
 def get_my_ip():

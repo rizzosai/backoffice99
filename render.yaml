@@ -12,12 +12,13 @@ services:
     domains:
       - rizzosai.com
       - www.rizzosai.com
-  - type: static
+
+  - type: web
     name: rizzosai-landing
+    env: static
     rootDir: backend/rizzs
     buildCommand: ''
     staticPublishPath: backend/rizzs
     domains:
       - rizzosai.com
       - www.rizzosai.com
-      

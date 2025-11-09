@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: rizzosai-backend
+    env: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    rootDir: backend/rizzs
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+    domains:
+      - rizzosai.com
+      - www.rizzosai.com
+  - type: static
+    name: rizzosai-landing
+    rootDir: backend/rizzs
+    buildCommand: ''
+    staticPublishPath: backend/rizzs
+    domains:
+      - rizzosai.com
+      - www.rizzosai.com
